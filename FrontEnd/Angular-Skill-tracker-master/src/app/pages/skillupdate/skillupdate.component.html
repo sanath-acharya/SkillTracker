@@ -1,0 +1,171 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!-- Card stats -->
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--4">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 mb-5 mb-xl-0">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h6 class="text-uppercase text-muted ls-1 mb-1"></h6>
+                            <h2 class="mb-0">Update Skill</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <form role="form" [formGroup]="skillUpdateForm" (ngSubmit)="onUpdateChange( )" #formupdate="ngForm">
+
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.skillCategory}">
+                            <label for="skillGroup" class="col-md-3 col-form-label">Skill-Group: </label>
+                            <div>
+
+                            </div>
+                            <div class="col-lg-7">
+                                <select class="form-control" formControlName="skillGroup" type="text"
+                                    (blur)="getskillName()"
+                                    [ngClass]="{ 'is-invalid': submitted && f.skillGroup.errors }"
+                                    [(ngModel)]="skillCategory">
+                                    <option *ngFor="let s of mySet" value='{{s}}'>{{s}}
+                                    </option>
+
+                                    <!-- (ngModel)="AssociateSkill.SkillsInfo.skillName"(ngModel)="AssociateSkill.SkillsInfo.skillCategory" -->
+                                </select>
+
+                                <!-- <div *ngIf="submitted && f.skillGroup.errors" class="invalid-feedback">
+                                        <div *ngIf="f.skillGroup.errors.required">Skill-Group is required</div>
+    
+                                    </div> -->
+
+                                <span class="help-block" *ngIf="forErrors.skillGroup">
+                                    <span class="text-danger"> {{forErrors.skillGroup}}</span>
+                                </span>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.skillName}">
+                            <label for="skillName" class="col-md-3 col-form-label">Skill-Name: </label>
+                            <div class="col-lg-7">
+                                <select class="form-control" formControlName="skillName" type="text"
+                                    [(ngModel)]="skillname"
+                                    [ngClass]="{ 'is-invalid': submitted && f.skillName.errors }">
+                                    <option *ngFor="let sk of skillName" value='{{sk.skillName}}'>{{sk.skillName}}
+                                    </option>
+
+                                </select>
+
+                                <span class="help-block" *ngIf="forErrors.skillName">
+                                    <span class="text-danger"> {{forErrors.skillName}}</span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.certification}">
+                            <label for="certification" class="col-md-3 col-form-label">Certification: </label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="certification" name="certification"
+                                    type="text" [(ngModel)]="AssociateSkill.certification"
+                                    [ngClass]="{ 'is-invalid': submitted && f.certification.errors }" (blur)="logValidationErrors()">
+
+                                <span class="help-block" *ngIf="forErrors.certification">
+                                    <span class="text-danger"> {{forErrors.certification}}</span>
+                                </span>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.startDate}">
+                            <label for="start-date" class="col-md-3 col-form-label">Start Date:</label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="startDate" id="dob" name="startDate"
+                                    placeholder="start date" type="date" [(ngModel)]="AssociateSkill.startDate"
+                                    [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"
+                                    max="{{formupdate.value.endDate}}" (blur)="logValidationErrors()">
+                                <span class="help-block" *ngIf="forErrors.startDate">
+                                    <span class="text-danger"> {{forErrors.startDate}}</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.endDate}">
+                            <label for="end-date" class="col-md-3 col-form-label">End Date:</label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="endDate" id="dob" placeholder="end date"
+                                    name="endDate" type="date" [(ngModel)]="AssociateSkill.endDate"
+                                    [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }"
+                                    min="{{formupdate.value.startDate}}" (blur)="logValidationErrors()">
+                                <span class="help-block" *ngIf="forErrors.endDate">
+                                    <span class="text-danger"> {{forErrors.endDate}}</span>
+                                </span>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.duration}">
+                            <label for="duration" class="col-md-3 col-form-label">Duration (In Hours): </label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="duration"
+                                    [(ngModel)]="AssociateSkill.duration" type="text" name="duration"
+                                    [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" (blur)="logValidationErrors()">
+
+                                <span class="help-block" *ngIf="forErrors.duration">
+                                    <span class="text-danger"> {{forErrors.duration}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group form-row" [ngClass]="{'has-error' : forErrors.experience}">
+                            <label for="expierence" class="col-md-3 col-form-label">Expierence(in years): </label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="expierence" type="text"
+                                    [(ngModel)]="AssociateSkill.experience" name="experience"
+                                    [ngClass]="{ 'is-invalid': submitted && f.expierence.errors }" (blur)="logValidationErrors()">
+
+
+                                <span class="help-block" *ngIf="forErrors.experience">
+                                    <span class="text-danger"> {{forErrors.experience}}</span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group form-row">
+                            <label for="rating" class="col-md-3 col-form-label">Rating: </label>
+                            <div class="col-lg-7">
+                                <input class="form-control" formControlName="rating" type="range"
+                                    [(ngModel)]="AssociateSkill.rating" name="rating"
+                                    [ngClass]="{ 'is-invalid': submitted && f.rating.errors }" min="1" max="5" step="1"
+                                    value="{{AssociateSkill.rating}}" (blur)="logValidationErrors()">
+                                <span class="help-block" *ngIf="forErrors.rating">
+                                    <span class="text-danger"> {{forErrors.rating}}</span>
+                                </span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="text-center">
+                            <button class="btn btn-outline-primary mt-4" type="submit">Submit
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-outline-danger mt-4" routerLink="/viewSkills"><img
+                                    src="./assets/img/brand/back.png">
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
