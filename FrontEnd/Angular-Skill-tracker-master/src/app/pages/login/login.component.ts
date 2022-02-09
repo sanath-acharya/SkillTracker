@@ -1,4 +1,3 @@
-import { AssociateAndSkills } from './../../../../../../argon-dashboard-angular-master/src/app/model/associate-and-skills';
 import { Associates } from './../../associates';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from './../../service/login.service';
