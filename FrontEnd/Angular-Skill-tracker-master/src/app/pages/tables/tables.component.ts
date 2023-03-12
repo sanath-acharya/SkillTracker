@@ -1,7 +1,6 @@
-import { Associates } from './../../associates';
 import { AssociateService } from './../../service/associate.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Associates } from 'src/app/model/associates';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',

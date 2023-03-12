@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { UserDetailsService } from './../../user-details.service';
+import { UserDetailsService } from '../../service/user-details.service';
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';

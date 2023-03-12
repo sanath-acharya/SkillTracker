@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { UserDetailsService } from './../../user-details.service';
+import { UserDetailsService } from '../../service/user-details.service';
 import { Skills } from 'src/app/model/skills';
 import { Component, OnInit } from '@angular/core';
 import { SkillsService } from 'src/app/service/skills.service';

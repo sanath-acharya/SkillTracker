@@ -1,12 +1,9 @@
-import { Associates } from './../../associates';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from './../../service/login.service';
 import { LoginModel } from '../../model/login-model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AssociateLoginModel } from 'src/app/model/associate-login-model';
-import { pipe } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-login',

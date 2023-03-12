@@ -1,8 +1,7 @@
-import { Associates } from './../associates';
-import { Response } from 'selenium-webdriver/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders ,HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Associates } from '../model/associates';
 
 @Injectable({
   providedIn: 'root'

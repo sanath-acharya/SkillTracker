@@ -1,10 +1,10 @@
 //import { DashboardComponent } from './../../../../SkillTracker/src/app/dashboard/dashboard.component';
-import { UserDetailsService } from './user-details.service';
+import { UserDetailsService } from './service/user-details.service';
 // import { HomeComponent } from './../../../../service/src/app/home/home.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { JwtInterceptorService } from './jwt-interceptor.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,14 +18,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { JwtUnAuthorizedInterceptorServiceService } from './jwt-un-authorized-interceptor-service.service';
+import { JwtUnAuthorizedInterceptorServiceService } from './service/jwt-un-authorized-interceptor-service.service';
 import { AddAssociateComponent } from './pages/add-associate/add-associate.component';
 
 import { FilterPipe } from './filter-pipe';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AddSkillComponent } from './pages/add-skill/add-skill.component';
 
-import {CountriesService} from './service/countries.service';
+
 import { SkillupdateComponent } from './pages/skillupdate/skillupdate.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ViewAssociateComponent } from './pages/view-associate/view-associate.component';
@@ -39,6 +39,7 @@ import { ViewAssociateSkillsComponent } from './pages/view-associate-skills/view
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UpdateAssoSkillsComponent } from './pages/update-asso-skills/update-asso-skills.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { JwtInterceptorService } from './service/jwt-interceptor.service';
 
 
 

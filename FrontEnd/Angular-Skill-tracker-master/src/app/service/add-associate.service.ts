@@ -1,21 +1,23 @@
 import { Ping } from './../model/ping';
-import { Associates } from './../associates';
-import { Router } from '@angular/router';
 
 import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { Injectable,TemplateRef  } from '@angular/core';
 import { Associate } from '../model/associate';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddAssociateService {
   editModeltoupdate:Associate=new  Associate(0,"", "", "", "", null, "", "", "", "");
- 
+  // private httpClientBackend: HttpClient;
   constructor(private http:HttpClient,private route:Router,
     private http1:HttpClient,
-    private httpBackend:HttpBackend) { }
+    private httpBackend:HttpBackend) { 
+
+      // this.httpClientBackend = new HttpClient(httpBackend);
+    }
 
   
 

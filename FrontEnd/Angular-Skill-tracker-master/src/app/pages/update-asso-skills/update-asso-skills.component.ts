@@ -5,7 +5,7 @@ import { Associate } from 'src/app/model/associate';
 import { Skills } from 'src/app/model/skills';
 import { LoginService } from 'src/app/service/login.service';
 import { AssociateSkillServiceService } from 'src/app/service/associate-skill-service.service';
-import { UserDetailsService } from 'src/app/user-details.service';
+import { UserDetailsService } from 'src/app/service/user-details.service';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from 'ng-starrating';
 
