@@ -39,9 +39,9 @@ public class HRLoginService
 	
 	
 	public HR createHR(HR hr) {
-		//String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
-		//hr.setBcryptPass(bpass);
-		//System.out.println(hr.getBcryptPass());
+		String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
+		hr.setUserPassword(bpass);
+		System.out.println("Password hashed and stored securely");
 		
     	return repo.save(hr);
 	}
@@ -51,7 +51,7 @@ public HR verifyUser(String email, String pass ) {
 	HR hr = repo.findByUserEmail(email);
 	System.out.println(email);
 	if(hr!=null) {
-		    if(hr.getUserEmail().equals(email) && hr.getUserPassword().equals(pass))
+		    if(hr.getUserEmail().equals(email) && bCryptPasswordEncoder.matches(pass, hr.getUserPassword()))
 		    {
 		    	System.out.println("success");
 			return hr;
@@ -75,9 +75,9 @@ public HR verifyUser(String email, String pass ) {
 	}
 
 	public void updateHR(HR hr) {
-	    //String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
-		//hr.setBcryptPass(bpass);
-		//System.out.println(hr.getBcryptPass());
+	    String bpass = bCryptPasswordEncoder.encode(hr.getUserPassword());
+		hr.setUserPassword(bpass);
+		System.out.println("Password hashed and updated securely");
     	repo.save(hr);
 	}
 
